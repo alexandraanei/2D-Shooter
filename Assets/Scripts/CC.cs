@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class CC : MonoBehaviour
 {
@@ -15,6 +14,8 @@ public class CC : MonoBehaviour
     private float lastShot;
     public float timeBetweenShots;
     public float projectileSpeed;
+    public int health = 100;
+    public Slider healthBar;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,8 @@ public class CC : MonoBehaviour
 
     private void Update()
     {
+        // sincronizam slider-ul (healthBar) cu health-ul
+        UpdateHealthBar();
         //La fiecare frame se verifica daca playerul doreste sa sara, acesta trebuie sa atinga pamantul 
         if (Input.GetButtonDown("Jump") && grounded)
         {
@@ -92,5 +95,10 @@ public class CC : MonoBehaviour
     void SetWeapon(bool w)
     {
         hasWeapon = w;
+    }
+
+    void UpdateHealthBar()
+    {
+        healthBar.value = health;
     }
 }
