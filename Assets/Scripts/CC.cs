@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
-
 public class CC : MonoBehaviour
 {
     public float speed;
@@ -14,7 +15,7 @@ public class CC : MonoBehaviour
     private float lastShot;
     public float timeBetweenShots;
     public float projectileSpeed;
-    public int health = 100;
+    public int health;
     public Slider healthBar;
 
     // Start is called before the first frame update
@@ -28,8 +29,6 @@ public class CC : MonoBehaviour
 
     private void Update()
     {
-        // sincronizam slider-ul (healthBar) cu health-ul
-        UpdateHealthBar();
         //La fiecare frame se verifica daca playerul doreste sa sara, acesta trebuie sa atinga pamantul 
         if (Input.GetButtonDown("Jump") && grounded)
         {
@@ -40,8 +39,8 @@ public class CC : MonoBehaviour
         }
 
         //La fiecare frame se verifica daca playerul doreste sa traga, acesta trebuie sa aiba arma si sa nu fii tras prea curand
-        if (Input.GetKeyDown(KeyCode.X) && hasWeapon && Time.time - lastShot > timeBetweenShots)
-        {
+        if (Input.GetKeyDown(KeyCode.X) && hasWeapon && Time.time - lastShot > timeBetweenShots )
+        {   
             //Actualizam cand s-a tras ultima data si instantiem bila de foc cu care se trage
             //bila de foc este orientada in functie de directia playerului si i se adauga o viteza setata
             lastShot = Time.time;
@@ -51,6 +50,8 @@ public class CC : MonoBehaviour
             Rigidbody2D rb = go.GetComponent<Rigidbody2D>();
             rb.velocity = facing * projectileSpeed;
         }
+
+        UpdateHealth();
     }
 
     // Update is called once per frame
@@ -78,14 +79,14 @@ public class CC : MonoBehaviour
         }
 
         //se aplica deplasarea asupra playerului
-        transform.Translate(horizontal, 0.0f, 0.0f);
+        transform.Translate(horizontal, 0.0f , 0.0f);
     }
 
 
     //cand playerul atinge un obliect cu taggul ground semnalam ca acesta poate sarii din nou
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if(collision.gameObject.tag == "Ground")
         {
             grounded = true;
         }
@@ -97,8 +98,13 @@ public class CC : MonoBehaviour
         hasWeapon = w;
     }
 
-    void UpdateHealthBar()
+    void UpdateHealth()
     {
         healthBar.value = health;
+    }
+
+    public void DamageTaken(int damage)
+    {
+        health -= damage;
     }
 }
