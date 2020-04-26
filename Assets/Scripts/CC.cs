@@ -107,4 +107,6 @@ public class CC : MonoBehaviour
     {
         health -= damage;
     }
+
+
 }
