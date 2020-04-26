@@ -52,6 +52,12 @@ public class CC : MonoBehaviour
         }
 
         UpdateHealth();
+
+        if (health < 1)
+        {
+            GameObject.Find("GameManager").SendMessage("PlayerDied");
+            Destroy(GameObject.Find("Player"));
+        }
     }
 
     // Update is called once per frame
@@ -84,11 +90,17 @@ public class CC : MonoBehaviour
 
 
     //cand playerul atinge un obliect cu taggul ground semnalam ca acesta poate sarii din nou
+    // cand playerul atinge DeathBox-ul moare
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Ground")
         {
             grounded = true;
+        }
+
+        if (collision.gameObject.tag == "Death")
+        {
+            health = 0;
         }
     }
 

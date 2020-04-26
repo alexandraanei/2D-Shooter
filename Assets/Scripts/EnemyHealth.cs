@@ -18,7 +18,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if(health <= 0)
         {   
-            GameObject.Find("GameManager").GetComponent<GameManagerScript>().SendMessage("updateScor", scorAdaugat);
+            // GameObject.Find("GameManager").GetComponent<GameManagerScript>().SendMessage("updateScor", scorAdaugat);
             Destroy(this.gameObject);
         }
     }
