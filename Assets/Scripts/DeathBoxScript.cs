@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DeathBoxScript : MonoBehaviour
 {
@@ -17,10 +15,11 @@ public class DeathBoxScript : MonoBehaviour
     }
 
 
-    //Acest script este atasat unui obiect care se afla sub nivel
-    //Este responsabil pentru distrugerea oricarui obiect care a cazut de pe nivel
-    private void OnTriggerEnter2D(Collider2D collision)
+    // Acest script este atasat unui obiect care se afla sub nivel
+    // Este responsabil pentru distrugerea oricarui obiect care a cazut de pe nivel
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject.tag != "Player")
             Destroy(collision.gameObject);
     }
 }
