@@ -31,7 +31,13 @@ public class CalugarScript : MonoBehaviour
         //Daca acest inamic intra in coliziune cu playerul i se aplica 45 puncte dauna
         if (collision.gameObject.tag == "Player")
         {
-              player.GetComponent<CC>().DamageTaken(45);
+            player.GetComponent<CC>().DamageTaken(45);
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
+        }
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
         }
     }
 
