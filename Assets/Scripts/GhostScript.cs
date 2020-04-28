@@ -6,7 +6,7 @@ public class GhostScript : MonoBehaviour
 {
     public float offsetX;
     public float offsetY;
-    private GameObject camera;
+    // private GameObject camera;
     private GameObject player;
     public float delay;
     private float startTime;
@@ -17,7 +17,7 @@ public class GhostScript : MonoBehaviour
         player = GameObject.Find("Player");
         //Se stabileste durata de viata a obiectului
         startTime = Time.time;
-        camera = GameObject.Find("Main Camera");
+        // camera = GameObject.Find("Main Camera");
         Destroy(this.gameObject, 2F);
     }
 

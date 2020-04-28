@@ -71,7 +71,9 @@ public class GameManagerScript : MonoBehaviour
 
         // texty.text = "Best: " + scormax + " " + etichetamax;
         deathScreen.SetActive(true);
-    
+        Time.timeScale = 0;
+
+
     }
 
     public void acceptaNume(string param){
