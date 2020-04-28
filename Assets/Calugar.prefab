@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 73404025025553255}
   - component: {fileID: 2444691089576293941}
   m_Layer: 0
-  m_Name: Ghost 1
+  m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 00bf3215778fac441b245373659a9d6f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6dae06ba2306ef54da99dac946281327, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.4, y: 6.4}
+  m_Size: {x: 12.8, y: 12.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -94,7 +94,7 @@ Animator:
   m_GameObject: {fileID: 73404025025553259}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f63ce47e7d1b4324a9d51b7fe85d6cc3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -112,12 +112,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 73404025025553259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5670c0d5556a77d46b1e95eac5f8fec3, type: 3}
+  m_Script: {fileID: 11500000, guid: e056e3d9ae8618240870d01dac5797da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetX: -0.1
-  offsetY: -0.2
-  delay: 0.7
+  offsetX: 0.15
 --- !u!70 &2444691089576293941
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
