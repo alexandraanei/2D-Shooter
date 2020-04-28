@@ -12,8 +12,10 @@ public class MeleeSkeleton : MonoBehaviour
     private Vector3 moveDirection;
     private CharacterController cc;
     private float timer;
-    private float horizontal;
+    public float horizontal = 1;
     public int damage;
+    public delegate void Movement();
+    public Movement movement;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,7 @@ public class MeleeSkeleton : MonoBehaviour
         cc = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         timer = Time.time;
+        movement = MoveToPlayer;
     }
 
     // Update is called once per frame
@@ -29,9 +32,8 @@ public class MeleeSkeleton : MonoBehaviour
     {
         if(Time.time > timer && player != null)
         {
-            float dist = MoveToPlayer();
+            movement();
         }
-
     
     }
 
@@ -51,25 +53,18 @@ public class MeleeSkeleton : MonoBehaviour
             timer = Time.time;
         }
 
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
+        }
+
     }
 
 
     //Se stabileste directia in care trebuie sa se deplaseza scheletul
     //Si apoi se muta
-    float MoveToPlayer()
+    public void MoveToPlayer()
     {
-        float dist = Mathf.Abs(player.transform.position.x - transform.position.x);
-
-        
-        if(dist < 1)
-        {
-            if (Mathf.Abs(player.transform.position.y - transform.position.y) > 0.4F)
-                return 3;
-            animator.speed = 0;
-            return 1;
-        }
-
-        //moveDirection = transform.position;
         if (player.transform.position.x < transform.position.x)
         {
             horizontal = -1;
@@ -87,8 +82,18 @@ public class MeleeSkeleton : MonoBehaviour
 
         transform.Translate(horizontal, 0.0f, 0.0f);
 
-        //Mathf.Abs(moveDirection.x)
         animator.speed = 2;
-        return Mathf.Abs(player.transform.position.x - transform.position.x);
+    }
+
+    public void MoveIdle()
+    {
+
+        if (GetComponent<SpriteRenderer>().flipX == true) { horizontal = -1; } else { horizontal = 1; }
+        horizontal *= speed;
+        horizontal *= Time.deltaTime;
+
+        transform.Translate(horizontal, 0.0f, 0.0f);
+
+        animator.speed = 2;
     }
 }
