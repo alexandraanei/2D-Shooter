@@ -38,7 +38,7 @@ public class BossFightScript : MonoBehaviour
             //Se porneste o animatie cetei
             ceata.SetBool("TriggerCeata", true);
             //Se instantiaza boss-ul
-            Instantiate(vampir, new Vector3(120.1F, -1.78F, 0.3F), Quaternion.identity);
+            Instantiate(vampir, new Vector3(130.05F, 0.64F, 0.3F), Quaternion.identity);
 
             //Se distruge triggerul dar si acest script din scena deoarece nu mai este nevoie de el
             Destroy(triggerBox);

@@ -41,7 +41,7 @@ public class VampirScript : MonoBehaviour
                 
                 StartCoroutine(waiter());
 
-                Instantiate(bull, new Vector3(transform.position.x,-3.05F, -1.5F), Quaternion.identity);
+                Instantiate(bull, new Vector3(transform.position.x,-2F, -1.5F), Quaternion.identity);
             
                 lastBull = Time.time;
 

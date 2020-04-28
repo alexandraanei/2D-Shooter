@@ -3517,6 +3517,7 @@ GameObject:
   - component: {fileID: 204678374}
   - component: {fileID: 204678373}
   - component: {fileID: 204678372}
+  - component: {fileID: 204678375}
   m_Layer: 0
   m_Name: BossFightBox
   m_TagString: Ground
@@ -3608,12 +3609,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 204678371}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 115.22708, y: -1.74, z: -3.65625}
+  m_LocalPosition: {x: 118, y: -1.74, z: -3.65625}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &204678375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204678371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de9dfdf0d3768f418948219a7129697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spike: {fileID: 3362049333952698113, guid: 661039c6b8d44d34cb471cca84be9302, type: 3}
+  intervalSpike: 10
 --- !u!1 &209564988
 GameObject:
   m_ObjectHideFlags: 0
