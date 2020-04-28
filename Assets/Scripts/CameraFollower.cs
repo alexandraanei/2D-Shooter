@@ -13,6 +13,7 @@ public class CameraFollower : MonoBehaviour
     private float lastSpawnedGhost;
     public float timeBetweenSpawns;
     public float timeBetweenSpawnsGhost;
+    private bool bossFight;
 
     // Start is called before the first frame update
     void Start()
@@ -31,19 +32,18 @@ public class CameraFollower : MonoBehaviour
         muzica = GetComponent<AudioSource>();
         muzica.volume = 0.5F;
 
-        //camera va urmarii jucatorul pe axa Ox
-        Vector3 newPosition = transform.position;
-        if(player !=null)
+        if (bossFight == false && player != null)
+        {
+            Vector3 newPosition = transform.position;
             newPosition.x = player.transform.position.x;
             transform.position = newPosition;
-        
+
             //Iar backgroundul va urmarii camera
             newPosition = bg.transform.position;
-
-        if (player != null)
             newPosition.x = player.transform.position.x;
             bg.transform.position = newPosition;
 
+        }
 
 
         //Daca a trecut timpul dintre instantierile calugarului
@@ -62,6 +62,14 @@ public class CameraFollower : MonoBehaviour
             Instantiate(ghost, new Vector3(player.transform.position.x + 3.5F, 3.5F, -1.5F), Quaternion.identity);
             lastSpawnedGhost = Time.time;
         }
+    }
+
+    //Folosim aceasta functie pentru a bloca cadrul la lupta cu boss-ul
+    void toggleFight(bool toggler)
+    {
+
+        bossFight = toggler;
+
     }
 
     //Pentru schimbare volumului cu ajutorul sliderului din meniul de optiuni
