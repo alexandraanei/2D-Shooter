@@ -1,20 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {   
-    // private int scor;
-    private TextMeshProUGUI Text;
+    public int score = 0;
+    public Text scoreText;
     public GameObject MainMenu;
-    //private int scormax;
-    //private string eticheta;
-    //private string etichetamax;
     public GameObject deathScreen;
-    // public Text texty;
     public Button playButton;
     public Button optionsButton;
     public Button goBackButton;
@@ -22,17 +17,6 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
-        //retimen scorul maxim si numele jucatorului care l-a atins
-        // scormax = PlayerPrefs.GetInt("scormax");
-        //etichetamax = PlayerPrefs.GetString("eticheta");
-
-        
-        //Retinem Obiectul din scena care reprezinta meniul
-        //Retinem si Obiectul responsabil cu afisarea textului
-        // Text = GameObject.Find("TextScor").GetComponent<TextMeshProUGUI>();
-        // scor = 0;
-        // Text.SetText("scor: {0}", scor);
-        //Punem pauza jocului pentru a nu se derula in timp ce meniul este activ
         Time.timeScale = 0;
     }
 
@@ -43,22 +27,19 @@ public class GameManagerScript : MonoBehaviour
 
             PressPlay();
         }
-
+        UpdateScoreUI();
     }
 
-    // public int getScor(){
-    //     return scor;
-    // }
+    void UpdateScoreUI()
+    {
+        scoreText.text = "Score: " + score.ToString();
+    }
 
-    //Pentru afisarea scorului curent
-    // void updateScor(int valoare){
+    public void AddScore(int scorePoints)
+    {
+        score += scorePoints;
+    }
 
-    //    scor+= valoare;
-    //    Text.SetText("scor: {0}", scor);
-    // }    
-
-    //Se pune auza sau se rezuma jocul aici
-    //In acelasi timp se activeaza/dezactiveaza meniul
     public void PressPlay(){
 
         Time.timeScale = 1;
@@ -66,38 +47,11 @@ public class GameManagerScript : MonoBehaviour
     }
 
     //Se afiseaza ce corespunde mortii playerului
-    //Ecranul invita playerului sa isi introduca numele pentru cazul in care playerul a batut scorul maxim
     public void PlayerDied(){
 
-        // texty.text = "Best: " + scormax + " " + etichetamax;
         deathScreen.SetActive(true);
         Time.timeScale = 0;
-
-
     }
-
-    public void acceptaNume(string param){
-        
-        Debug.Log("!!!!!!!!!");
-        Debug.Log(param);
-       //eticheta = param; 
-    }
-
-    //Daca scorul depaseste scorul maxim sa actualizeaza
-    //Apoi se reseteaza scena
-    //public void acceptaScor(){
-        
-        
-    //    if(scor > scormax){
-            
-    //        PlayerPrefs.SetInt("scormax", scor);
-    //        PlayerPrefs.SetString("eticheta", eticheta);
-
-    //    }
-
-    //    SceneManager.LoadSceneAsync(0);
-
-    //}
 
     public void HideButtons()
     {
