@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
-{   
+{
     public int score = 0;
     public Text scoreText;
     public GameObject MainMenu;
@@ -13,17 +13,25 @@ public class GameManagerScript : MonoBehaviour
     public Button playButton;
     public Button optionsButton;
     public Button goBackButton;
+    public Button highscoresButton;
+    public GameObject leaderboard;
+    public Text[] highscores;
+    public Text winMessage;
+    public Text loseMessage;
+    public InputField highscoreName;
+    public Text HSMessage;
+    public Button saveButton;
 
     // Start is called before the first frame update
     void Start()
-    {   
+    {
         Time.timeScale = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        if (Input.GetKeyDown(KeyCode.Escape)) {
 
             PressPlay();
         }
@@ -33,6 +41,16 @@ public class GameManagerScript : MonoBehaviour
     void UpdateScoreUI()
     {
         scoreText.text = "Score: " + score.ToString();
+    }
+
+    public void CheckIfHighscore()
+    {
+        if (HighscoreScript.ReturnHighscores() == null || HighscoreScript.ReturnHighscores().highscores.Length < 5 || score >= HighscoreScript.ReturnHighscores().highscores[4].score)
+        {
+            saveButton.gameObject.SetActive(true);
+            highscoreName.gameObject.SetActive(true);
+            HSMessage.gameObject.SetActive(true);
+        }
     }
 
     public void AddScore(int scorePoints)
@@ -51,20 +69,52 @@ public class GameManagerScript : MonoBehaviour
 
         deathScreen.SetActive(true);
         Time.timeScale = 0;
+        CheckIfHighscore();
     }
 
-    public void HideButtons()
+    public void SaveHighscore()
+    {
+        if (highscoreName.text != "" && highscoreName.text != null)
+        {
+            HighscoreScript.WriteHSFile(highscoreName.text, GameObject.Find("GameManager").GetComponent<GameManagerScript>().score);
+            saveButton.gameObject.SetActive(false);
+        }
+    }
+
+    public void OnClickOptions()
     {
         playButton.gameObject.SetActive(false);
         optionsButton.gameObject.SetActive(false);
+        highscoresButton.gameObject.SetActive(false);
         goBackButton.gameObject.SetActive(true);
     }
 
-    public void ShowButtons()
+    public void OnClickGoBack()
     {
         playButton.gameObject.SetActive(true);
         optionsButton.gameObject.SetActive(true);
+        highscoresButton.gameObject.SetActive(true);
         goBackButton.gameObject.SetActive(false);
+        leaderboard.gameObject.SetActive(false);
+    }
+
+    public void OnClickHighscores()
+    {
+        playButton.gameObject.SetActive(false);
+        optionsButton.gameObject.SetActive(false);
+        highscoresButton.gameObject.SetActive(false);
+        goBackButton.gameObject.SetActive(true);
+        leaderboard.gameObject.SetActive(true);
+        highscores = leaderboard.GetComponentsInChildren<Text>();
+        GetHighscores();
+    }
+
+    public void GetHighscores()
+    {
+        for(int i = 0; i < Mathf.Min(5, HighscoreScript.ReturnHighscores().highscores.Length); i++)
+        {
+            highscores[i].text = (i + 1).ToString() + ". " + HighscoreScript.ReturnHighscores().highscores[i].name + " - " + HighscoreScript.ReturnHighscores().highscores[i].score.ToString();
+        }
     }
 
     public void ReloadScene()
