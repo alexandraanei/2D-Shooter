@@ -30,7 +30,6 @@ public class CameraFollower : MonoBehaviour
     {
         //retinem componenta responsabila cu muzica de fundal
         muzica = GetComponent<AudioSource>();
-        muzica.volume = 0.5F;
 
         if (bossFight == false && player != null)
         {
@@ -67,16 +66,7 @@ public class CameraFollower : MonoBehaviour
     //Folosim aceasta functie pentru a bloca cadrul la lupta cu boss-ul
     void toggleFight(bool toggler)
     {
-
         bossFight = toggler;
-
-    }
-
-    //Pentru schimbare volumului cu ajutorul sliderului din meniul de optiuni
-    public void changeVolume(float newVal)
-    {
-
-        muzica.volume = newVal;
     }
 
 }

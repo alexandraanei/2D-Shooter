@@ -18,14 +18,25 @@ public class GameManagerScript : MonoBehaviour
     public Text[] highscores;
     public Text winMessage;
     public Text loseMessage;
+    public Text volumeMessage;
     public InputField highscoreName;
     public Text HSMessage;
     public Button saveButton;
+    public Slider volumeSlider;
+    private AudioSource music;
 
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 0;
+        music = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+        if (PlayerPrefs.HasKey("Volume"))
+        {
+            // set the volume to saved volume
+            music.volume = PlayerPrefs.GetFloat("Volume");
+            volumeSlider.value = music.volume;
+        }
+
     }
 
     // Update is called once per frame
@@ -87,6 +98,8 @@ public class GameManagerScript : MonoBehaviour
         optionsButton.gameObject.SetActive(false);
         highscoresButton.gameObject.SetActive(false);
         goBackButton.gameObject.SetActive(true);
+        volumeSlider.gameObject.SetActive(true);
+        volumeMessage.gameObject.SetActive(true);
     }
 
     public void OnClickGoBack()
@@ -96,6 +109,8 @@ public class GameManagerScript : MonoBehaviour
         highscoresButton.gameObject.SetActive(true);
         goBackButton.gameObject.SetActive(false);
         leaderboard.gameObject.SetActive(false);
+        volumeSlider.gameObject.SetActive(false);
+        volumeMessage.gameObject.SetActive(false);
     }
 
     public void OnClickHighscores()
@@ -116,6 +131,13 @@ public class GameManagerScript : MonoBehaviour
             highscores[i].text = (i + 1).ToString() + ". " + HighscoreScript.ReturnHighscores().highscores[i].name + " - " + HighscoreScript.ReturnHighscores().highscores[i].score.ToString();
         }
     }
+
+    public void ChangeVolume()
+    {
+        music.volume = volumeSlider.value;
+        PlayerPrefs.SetFloat("Volume", music.volume);
+    }
+
 
     public void ReloadScene()
     {
