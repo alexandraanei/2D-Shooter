@@ -57,6 +57,7 @@ public class CC : MonoBehaviour
         {
             GameObject.Find("GameManager").SendMessage("PlayerDied");
             Destroy(GameObject.Find("Player"));
+            GameObject.Find("GameManager").GetComponent<GameManagerScript>().loseMessage.gameObject.SetActive(true);
         }
     }
 
