@@ -12,7 +12,7 @@ public class InvisibleWall : MonoBehaviour
             enemy = collision.gameObject;
 
             collision.gameObject.GetComponent<SpriteRenderer>().flipX = !collision.gameObject.GetComponent<SpriteRenderer>().flipX;
-            enemy.GetComponent<MeleeSkeleton>().movement = enemy.GetComponent<MeleeSkeleton>().MoveIdle;
+            if(enemy) enemy.GetComponent<MeleeSkeleton>().movement = enemy.GetComponent<MeleeSkeleton>().MoveIdle;
 
         }
 
