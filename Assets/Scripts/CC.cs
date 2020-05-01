@@ -119,6 +119,11 @@ public class CC : MonoBehaviour
     public void DamageTaken(int damage)
     {
         health -= damage;
+
+        if(health > 100) //pentru cazul cand ia power-up
+        {
+            health = 100;
+        }
     }
 
 }

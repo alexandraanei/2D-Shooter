@@ -232,6 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 500
   scorAdaugat: 500
+  powerUp: {fileID: 2434252580887483958, guid: ffc7a527e457dba4a95cb08da0d9fe2c, type: 3}
 --- !u!61 &-5115416939777949346
 BoxCollider2D:
   m_ObjectHideFlags: 0

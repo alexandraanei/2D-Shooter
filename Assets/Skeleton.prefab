@@ -101,6 +101,7 @@ MonoBehaviour:
   speed: 1
   gravity: 5
   timeBetweenActions: 1
+  horizontal: 1
   damage: 10
 --- !u!95 &4357215506373029907
 Animator:
@@ -172,3 +173,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   scorAdaugat: 20
+  powerUp: {fileID: 2434252580887483958, guid: ffc7a527e457dba4a95cb08da0d9fe2c, type: 3}

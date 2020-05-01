@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public float health;
     public float scorAdaugat;
+    public GameObject powerUp;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +18,18 @@ public class EnemyHealth : MonoBehaviour
     void Update()
     {
         if(health <= 0)
-        {   
+        {
+            System.Random rnd = new System.Random();
+            int nr = rnd.Next(1, 4);
+
             GameObject.Find("GameManager").GetComponent<GameManagerScript>().SendMessage("AddScore", scorAdaugat);
+            
+
+            if (nr == 3)
+            {
+                Instantiate(powerUp, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z), Quaternion.identity);
+            }
+
             Destroy(this.gameObject);
         }
     }
