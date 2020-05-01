@@ -8213,6 +8213,8 @@ MonoBehaviour:
   health: 40
   scorAdaugat: 60
   powerUp: {fileID: 2434252580887483958, guid: ffc7a527e457dba4a95cb08da0d9fe2c, type: 3}
+  invinciblepowerUp: {fileID: 2434252580887483958, guid: ecea8310ecae2384983fb20ded7283cd,
+    type: 3}
 --- !u!70 &568470359
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -12447,7 +12449,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 40
   scorAdaugat: 60
-  powerUp: {fileID: 0}
+  powerUp: {fileID: 2434252580887483958, guid: ffc7a527e457dba4a95cb08da0d9fe2c, type: 3}
+  invinciblepowerUp: {fileID: 2434252580887483958, guid: ecea8310ecae2384983fb20ded7283cd,
+    type: 3}
 --- !u!70 &915165572
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -14856,6 +14860,7 @@ MonoBehaviour:
   projectileSpeed: 15
   health: 100
   healthBar: {fileID: 921296487}
+  invincible: 0
 --- !u!1 &1091478544
 GameObject:
   m_ObjectHideFlags: 0
@@ -18196,6 +18201,8 @@ MonoBehaviour:
   health: 30
   scorAdaugat: 20
   powerUp: {fileID: 2434252580887483958, guid: ffc7a527e457dba4a95cb08da0d9fe2c, type: 3}
+  invinciblepowerUp: {fileID: 2434252580887483958, guid: ecea8310ecae2384983fb20ded7283cd,
+    type: 3}
 --- !u!70 &1368066053
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -22627,6 +22634,8 @@ MonoBehaviour:
   health: 40
   scorAdaugat: 60
   powerUp: {fileID: 2434252580887483958, guid: ffc7a527e457dba4a95cb08da0d9fe2c, type: 3}
+  invinciblepowerUp: {fileID: 2434252580887483958, guid: ecea8310ecae2384983fb20ded7283cd,
+    type: 3}
 --- !u!70 &1675388312
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -24617,6 +24626,8 @@ MonoBehaviour:
   health: 40
   scorAdaugat: 60
   powerUp: {fileID: 2434252580887483958, guid: ffc7a527e457dba4a95cb08da0d9fe2c, type: 3}
+  invinciblepowerUp: {fileID: 2434252580887483958, guid: ecea8310ecae2384983fb20ded7283cd,
+    type: 3}
 --- !u!70 &1857016324
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -27071,7 +27082,7 @@ GameObject:
   - component: {fileID: 2041754372}
   - component: {fileID: 2041754371}
   m_Layer: 0
-  m_Name: Image
+  m_Name: ImageHP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27942,6 +27953,8 @@ MonoBehaviour:
   health: 40
   scorAdaugat: 60
   powerUp: {fileID: 2434252580887483958, guid: ffc7a527e457dba4a95cb08da0d9fe2c, type: 3}
+  invinciblepowerUp: {fileID: 2434252580887483958, guid: ecea8310ecae2384983fb20ded7283cd,
+    type: 3}
 --- !u!70 &2079801419
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
