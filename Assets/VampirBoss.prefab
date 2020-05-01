@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4714815120134116945}
   - component: {fileID: -5725323487248782010}
   - component: {fileID: -1683091796392593623}
-  - component: {fileID: 7348527916687439174}
   - component: {fileID: -5115416939777949346}
   - component: {fileID: 8696457180517169835}
   m_Layer: 0
@@ -122,6 +121,7 @@ MonoBehaviour:
   bull: {fileID: 2434252580887483958, guid: f30105080cca9394291d44f4d00830ad, type: 3}
   musicClip: {fileID: 8300000, guid: 01e98a9e84ce24040af2ee84a5816171, type: 3}
   intervalUrlet: 4.5
+  health: 500
 --- !u!82 &-1683091796392593623
 AudioSource:
   m_ObjectHideFlags: 0
@@ -218,23 +218,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7348527916687439174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4714815120134116950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3e78c01a8f2664e8d9240a7bb83d0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 500
-  scorAdaugat: 500
-  powerUp: {fileID: 2434252580887483958, guid: ffc7a527e457dba4a95cb08da0d9fe2c, type: 3}
-  invinciblepowerUp: {fileID: 2434252580887483958, guid: ecea8310ecae2384983fb20ded7283cd,
-    type: 3}
 --- !u!61 &-5115416939777949346
 BoxCollider2D:
   m_ObjectHideFlags: 0

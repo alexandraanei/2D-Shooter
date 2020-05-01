@@ -14861,6 +14861,7 @@ MonoBehaviour:
   health: 100
   healthBar: {fileID: 921296487}
   invincible: 0
+  startInvincibility: 0
 --- !u!1 &1091478544
 GameObject:
   m_ObjectHideFlags: 0

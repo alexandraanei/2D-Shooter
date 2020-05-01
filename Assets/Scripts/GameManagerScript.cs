@@ -83,6 +83,14 @@ public class GameManagerScript : MonoBehaviour
         CheckIfHighscore();
     }
 
+    public void BossDied()
+    {
+        
+        deathScreen.SetActive(true);
+        Time.timeScale = 0;
+        CheckIfHighscore();
+    }
+
     public void SaveHighscore()
     {
         if (highscoreName.text != "" && highscoreName.text != null)
