@@ -14858,9 +14858,10 @@ MonoBehaviour:
     type: 3}
   timeBetweenShots: 0.4
   projectileSpeed: 15
-  health: 100
+  health: 10000
   healthBar: {fileID: 921296487}
   invincible: 0
+  startInvincibility: 0
 --- !u!1 &1091478544
 GameObject:
   m_ObjectHideFlags: 0

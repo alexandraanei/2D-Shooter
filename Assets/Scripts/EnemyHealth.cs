@@ -8,10 +8,14 @@ public class EnemyHealth : MonoBehaviour
     public float scorAdaugat;
     public GameObject powerUp;
     public GameObject invinciblepowerUp;
+    //public GameObject enemy;
+
+
     // Start is called before the first frame update
     void Start()
     {
         
+      // enemy = GameObject.Find("Enemy");
     }
 
     //Acest script este responsabil cu retinerea punctelor de viata 
@@ -36,8 +40,26 @@ public class EnemyHealth : MonoBehaviour
                 Instantiate(invinciblepowerUp, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z), Quaternion.identity);
             }
 
+
+           // Destroy(this.gameObject);
+
+            if( this.gameObject.tag == "Boss")
+            {
+                GameObject.Find("GameManager").SendMessage("BossDied");
+               
+                GameObject.Find("GameManager").GetComponent<GameManagerScript>().winMessage.gameObject.SetActive(true);
+            }
             Destroy(this.gameObject);
+
+
+
         }
+        
+        
+           
+        
+        
+        
     }
 
     void UpdateHealth(int Damage)
