@@ -20,6 +20,7 @@ public class CC : MonoBehaviour
     public bool invincible;
     private GameObject HPColor;
     public float startInvincibility;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -30,13 +31,19 @@ public class CC : MonoBehaviour
         lastShot = Time.time;
         invincible = false;
         HPColor = GameObject.Find("ImageHP");
+        // animator = GetComponent<Animator>();
         // Debug.Log(health);
     }
 
     private void Update()
     {
         // Debug.Log(health);
-        //La fiecare frame se verifica daca playerul doreste sa sara, acesta trebuie sa atinga pamantul 
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            animator.Play("Walking");
+            // transform.position += Vector3.right * speed * Time.deltaTime;
+        }
+        //La fiecare frame se verifica daca playerul doreste sa sara, acesta trebuie sa atinga pamantul
         if (Input.GetButtonDown("Jump") && grounded)
         {
             //Aplicam forta necesara sariturii playerului

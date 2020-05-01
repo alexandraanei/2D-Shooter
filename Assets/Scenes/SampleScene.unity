@@ -14750,6 +14750,7 @@ GameObject:
   - component: {fileID: 1086041048}
   - component: {fileID: 1086041047}
   - component: {fileID: 1086041051}
+  - component: {fileID: 1086041050}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -14859,6 +14860,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1086041050
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086041045}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8456ee1cfc20f8b479f541ee2d2be046, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 1
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1086041051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14882,6 +14902,7 @@ MonoBehaviour:
   healthBar: {fileID: 921296487}
   invincible: 0
   startInvincibility: 0
+  animator: {fileID: 1086041050}
 --- !u!1 &1091478544
 GameObject:
   m_ObjectHideFlags: 0
