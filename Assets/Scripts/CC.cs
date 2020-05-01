@@ -17,6 +17,9 @@ public class CC : MonoBehaviour
     public float projectileSpeed;
     public int health;
     public Slider healthBar;
+    public bool invincible;
+    private GameObject HPColor;
+    public float startInvincibility;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +28,8 @@ public class CC : MonoBehaviour
         hasWeapon = false;
         facing = Vector2.right;
         lastShot = Time.time;
+        invincible = false;
+        HPColor = GameObject.Find("ImageHP");
     }
 
     private void Update()
@@ -58,6 +63,22 @@ public class CC : MonoBehaviour
             GameObject.Find("GameManager").SendMessage("PlayerDied");
             Destroy(GameObject.Find("Player"));
             GameObject.Find("GameManager").GetComponent<GameManagerScript>().loseMessage.gameObject.SetActive(true);
+        }
+
+        //setam culoarea healthbar-ului in functie de statusul de invincibilitate
+        if (invincible==true)
+        {
+            HPColor.GetComponent<Image>().color = Color.cyan;
+        }
+        else
+        {
+            HPColor.GetComponent<Image>().color = new Color(185f / 255f, 3f / 255f, 3f / 255f); ;
+        }
+
+        //invincibilitatea dureaza 10 secunde
+        if (Time.time - startInvincibility > 10)
+        {
+            invincible = false;
         }
     }
 
@@ -118,12 +139,19 @@ public class CC : MonoBehaviour
 
     public void DamageTaken(int damage)
     {
-        health -= damage;
-
-        if(health > 100) //pentru cazul cand ia power-up
+        //nu se aplica damage decat daca e cu plus din powerup sau playerul nu e invincibil
+        if ((damage > 0 && invincible==false) || damage < 0)
+        {
+            health -= damage;
+        }
+            
+        //pentru cazul cand ia power-up
+        if (health > 100) 
         {
             health = 100;
         }
     }
+
+
 
 }

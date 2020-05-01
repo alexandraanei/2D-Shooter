@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
     public float health;
     public float scorAdaugat;
     public GameObject powerUp;
+    public GameObject invinciblepowerUp;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,11 @@ public class EnemyHealth : MonoBehaviour
             if (nr == 3)
             {
                 Instantiate(powerUp, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z), Quaternion.identity);
+            }
+
+            if(nr==2)
+            {
+                Instantiate(invinciblepowerUp, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z), Quaternion.identity);
             }
 
             Destroy(this.gameObject);
