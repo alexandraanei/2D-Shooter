@@ -146,7 +146,7 @@ public class CC : MonoBehaviour
         }
             
         //pentru cazul cand ia power-up
-        if (health > 100) 
+        if (health >= 100) 
         {
             health = 100;
         }
