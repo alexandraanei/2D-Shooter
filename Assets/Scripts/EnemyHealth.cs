@@ -31,7 +31,9 @@ public class EnemyHealth : MonoBehaviour
                 Instantiate(powerUp, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z), Quaternion.identity);
             }
 
-            if(nr==2)
+            int nr2 = rnd.Next(1, 7);
+
+            if (nr2==2)
             {
                 Instantiate(invinciblepowerUp, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z), Quaternion.identity);
             }
