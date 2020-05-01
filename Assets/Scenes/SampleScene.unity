@@ -8212,6 +8212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 40
   scorAdaugat: 60
+  powerUp: {fileID: 2434252580887483958, guid: ffc7a527e457dba4a95cb08da0d9fe2c, type: 3}
 --- !u!70 &568470359
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -12446,6 +12447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 40
   scorAdaugat: 60
+  powerUp: {fileID: 0}
 --- !u!70 &915165572
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -18193,6 +18195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   scorAdaugat: 20
+  powerUp: {fileID: 2434252580887483958, guid: ffc7a527e457dba4a95cb08da0d9fe2c, type: 3}
 --- !u!70 &1368066053
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -22623,6 +22626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 40
   scorAdaugat: 60
+  powerUp: {fileID: 2434252580887483958, guid: ffc7a527e457dba4a95cb08da0d9fe2c, type: 3}
 --- !u!70 &1675388312
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -24612,6 +24616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 40
   scorAdaugat: 60
+  powerUp: {fileID: 2434252580887483958, guid: ffc7a527e457dba4a95cb08da0d9fe2c, type: 3}
 --- !u!70 &1857016324
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -27936,6 +27941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 40
   scorAdaugat: 60
+  powerUp: {fileID: 2434252580887483958, guid: ffc7a527e457dba4a95cb08da0d9fe2c, type: 3}
 --- !u!70 &2079801419
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
