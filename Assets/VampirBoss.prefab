@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8696457180517169835}
   m_Layer: 0
   m_Name: VampirBoss
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3e78c01a8f2664e8d9240a7bb83d0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
+  health: 20
   scorAdaugat: 500
   powerUp: {fileID: 2434252580887483958, guid: ffc7a527e457dba4a95cb08da0d9fe2c, type: 3}
   invinciblepowerUp: {fileID: 2434252580887483958, guid: ecea8310ecae2384983fb20ded7283cd,
