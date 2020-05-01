@@ -22,6 +22,7 @@ public class GameManagerScript : MonoBehaviour
     public InputField highscoreName;
     public Text HSMessage;
     public Button saveButton;
+    public Button exitButton;
     public Slider volumeSlider;
     private AudioSource music;
 
@@ -105,6 +106,7 @@ public class GameManagerScript : MonoBehaviour
         playButton.gameObject.SetActive(false);
         optionsButton.gameObject.SetActive(false);
         highscoresButton.gameObject.SetActive(false);
+        exitButton.gameObject.SetActive(false);
         goBackButton.gameObject.SetActive(true);
         volumeSlider.gameObject.SetActive(true);
         volumeMessage.gameObject.SetActive(true);
@@ -115,6 +117,7 @@ public class GameManagerScript : MonoBehaviour
         playButton.gameObject.SetActive(true);
         optionsButton.gameObject.SetActive(true);
         highscoresButton.gameObject.SetActive(true);
+        exitButton.gameObject.SetActive(true);
         goBackButton.gameObject.SetActive(false);
         leaderboard.gameObject.SetActive(false);
         volumeSlider.gameObject.SetActive(false);
@@ -126,6 +129,7 @@ public class GameManagerScript : MonoBehaviour
         playButton.gameObject.SetActive(false);
         optionsButton.gameObject.SetActive(false);
         highscoresButton.gameObject.SetActive(false);
+        exitButton.gameObject.SetActive(false);
         goBackButton.gameObject.SetActive(true);
         leaderboard.gameObject.SetActive(true);
         highscores = leaderboard.GetComponentsInChildren<Text>();
@@ -152,5 +156,9 @@ public class GameManagerScript : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void PressExit()
+    {
+        Application.Quit();
+    }
 }
 
