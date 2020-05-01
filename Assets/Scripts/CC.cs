@@ -36,7 +36,7 @@ public class CC : MonoBehaviour
     private void Update()
     {
         // Debug.Log(health);
-        //La fiecare frame se verifica daca playerul doreste sa sara, acesta trebuie sa atinga pamantul 
+        //La fiecare frame se verifica daca playerul doreste sa sara, acesta trebuie sa atinga pamantul
         if (Input.GetButtonDown("Jump") && grounded)
         {
             //Aplicam forta necesara sariturii playerului
