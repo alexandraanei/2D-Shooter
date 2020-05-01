@@ -30,10 +30,12 @@ public class CC : MonoBehaviour
         lastShot = Time.time;
         invincible = false;
         HPColor = GameObject.Find("ImageHP");
+        // Debug.Log(health);
     }
 
     private void Update()
     {
+        // Debug.Log(health);
         //La fiecare frame se verifica daca playerul doreste sa sara, acesta trebuie sa atinga pamantul 
         if (Input.GetButtonDown("Jump") && grounded)
         {
@@ -140,7 +142,7 @@ public class CC : MonoBehaviour
     public void DamageTaken(int damage)
     {
         //nu se aplica damage decat daca e cu plus din powerup sau playerul nu e invincibil
-        if ((damage > 0 && invincible==false) || damage < 0)
+        if ((damage > 0 && invincible == false) || damage < 0)
         {
             health -= damage;
         }

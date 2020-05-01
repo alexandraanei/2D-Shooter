@@ -8,11 +8,6 @@ public class EnemyHealth : MonoBehaviour
     public float scorAdaugat;
     public GameObject powerUp;
     public GameObject invinciblepowerUp;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     //Acest script este responsabil cu retinerea punctelor de viata 
     //si retinerea punctelor de scor pe care inamicul le va acorda playerului cand este omorat
@@ -39,12 +34,12 @@ public class EnemyHealth : MonoBehaviour
             }
 
             Destroy(this.gameObject);
+
         }
     }
 
     void UpdateHealth(int Damage)
     {
         health -= Damage;
-        //Debug.Log(health);
     }
 }

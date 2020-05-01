@@ -22,6 +22,10 @@ public class VampirScript : MonoBehaviour
         firstTime = Time.time;
     }
 
+    public int health;
+    private int scorAdaugat = 500;
+
+
     IEnumerator waiter()
     {   
         yield return new WaitForSeconds(1);
@@ -40,9 +44,9 @@ public class VampirScript : MonoBehaviour
         {
             GetComponent<AudioSource>().Play();
             lastUrlet = Time.time;
-
-           intervalUrlet = intervalBull - 0.5F; 
+            intervalUrlet = intervalBull - 0.5F; 
         }
+
 
         if(first == false)
         {
@@ -56,16 +60,28 @@ public class VampirScript : MonoBehaviour
                 Instantiate(bull, new Vector3(transform.position.x, -2F, -1.5F), Quaternion.identity);
 
                 lastBull = Time.time;
+                if(intervalBull > 1.5F) intervalBull -= 0.2F;
+             }
 
-                if (intervalBull > 1.5F)
-                    intervalBull -= 0.2F;
+
+         }
+
+   
 
 
-            }
-
+        if (health < 1)
+        {
+            Destroy(this.gameObject);
+            GameObject.Find("GameManager").GetComponent<GameManagerScript>().SendMessage("AddScore", scorAdaugat);
+            GameObject.Find("GameManager").SendMessage("BossDied");
+            GameObject.Find("GameManager").GetComponent<GameManagerScript>().winMessage.gameObject.SetActive(true);
         }
 
     }
 
+    void UpdateHealth(int Damage)
+    {
+        health -= Damage;
+    }
 
 }
